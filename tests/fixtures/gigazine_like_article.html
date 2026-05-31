@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>漏洩したGoogle APIキーは削除後も約23分間使える可能性があると研究者が確認 - GIGAZINE</title>
+  </head>
+  <body>
+    <div id="main">
+      <div id="article">
+        <div class="cntimage">
+          <time datetime="2026-05-22T20:00:00+09:00" class="yeartime">2026年05月22日 20時00分</time>
+          <span class="yeartime p-category"><a href="/news/C14/">セキュリティ</a></span>
+          <h1 class="title">漏洩したGoogle APIキーは削除後も約23分間使える可能性があると研究者が確認</h1>
+          <p class="preface"></p>
+          <a href="https://i.gzn.jp/img/2026/05/22/google-api-key-remain-live/00.png" target="_blank">
+            <img src="https://i.gzn.jp/img/2026/05/22/google-api-key-remain-live/00_m.png" alt="" />
+          </a>
+          <p class="preface">
+            APIキーはアプリやサービスがGoogle CloudなどのAPIにアクセスするための認証情報であり、<b><a href="https://kotobank.jp/word/%E6%BC%8F%E6%B4%A9-662475">漏洩</a></b>した場合は第三者に不正利用される恐れがあります。通常、開発者はAPIキーの漏洩に気づくと、管理画面からAPIキーを削除して被害を止めようとします。しかし、セキュリティ企業Aikidoの研究者は、Google APIキーを削除した後でも最長で約23分間、認証に成功するケースがあったと報告しました。
+          </p>
+          <p class="preface">
+            <b>Google API keys keep working after you delete them long enough to be exploited<br />
+            <a href="https://www.aikido.dev/blog/google-api-keys-deletion">https://www.aikido.dev/blog/google-api-keys-deletion</a></b><br />
+            <b><a href="https://www.youtube.com/watch?v=CJd6AkOaiJo">Google API Keys Remain Live - YouTube</a></b>
+          </p>
+          <div class="yt">
+            <div class="yt_play" id="yt_thumb_CJd6AkOaiJo">
+              <img id="yt_thumb_CJd6AkOaiJo_img" src="https://img.youtube.com/vi/CJd6AkOaiJo/maxresdefault.jpg" alt="" />
+            </div>
+          </div>
+          <p class="preface">
+            Aikidoによると、Google APIキーの削除はGoogleの全インフラに一斉に反映されるわけではなく、段階的に反映されます。漏洩したAPIキーを持つ攻撃者は、削除後も大量のリクエストを送り続けることで、削除情報がまだ反映されていないサーバーに当たる可能性があります。
+          </p>
+          <a href="https://i.gzn.jp/img/2026/05/22/google-api-key-remain-live/01.png" target="_blank">
+            <img src="https://i.gzn.jp/img/2026/05/22/google-api-key-remain-live/01_m.png" alt="" />
+          </a>
+          <p class="preface">
+            調査では、失効までの時間差が短くても約8分、中央値で約16分、最長で約23分に達したとのこと。Aikidoは10回の試験を2日間にわたって行い、各試験でAPIキーを作成して削除した後、1秒あたり3～5回の認証リクエストを送り続けました。
+          </p>
+          <p class="preface">
+            Googleのような大規模サービスでは、データや設定の変更を世界中のサーバーへ少しずつ反映する設計が使われます。Aikidoは段階的に反映する設計を「最終的に整合する仕組み」と説明しています。
+          </p>
+          <p class="preface">
+            被害は単なる認証の遅れにとどまりません。Aikidoのジョー・レオン氏は、Geminiが有効になっているプロジェクトでは、攻撃者がアップロード済みファイルやキャッシュされた会話内容を外部送信できる可能性があると指摘しています。
+          </p>
+          <p class="preface">
+            Aikidoは「Googleがより高速な失効処理を導入するまで、漏洩したGoogle APIキーの削除を『即時完了』ではなく『30分程度かかる作業』として扱うべき」だと述べています。
+          </p>
+          <div id="URLClip">この記事のタイトルとURLをコピーする</div>
+        </div>
+      </div>
+      <p class="article"><b>・関連記事</b><br />
+        <b><a href="https://gigazine.net/news/20260227-google-api-key-gemini">Googleが「公開してOK」と案内していたAPIキーがGeminiの認証キーにもなっているせいで個人情報垂れ流し状態のウェブサイトが大量に存在 - GIGAZINE</a></b><br />
+      </p>
+    </div>
+  </body>
+</html>

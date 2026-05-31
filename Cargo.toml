@@ -1,0 +1,17 @@
+[package]
+name = "web_readable"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+default = []
+dynamic = ["dep:chromiumoxide", "dep:futures", "dep:tokio"]
+
+[dependencies]
+html5ever = "0.39.0"
+markup5ever_rcdom = "0.39.0"
+thiserror = "2.0"
+url = "2"
+chromiumoxide = { version = "0.9.1", optional = true, default-features = false }
+futures = { version = "0.3", optional = true }
+tokio = { version = "1", optional = true, features = ["rt", "time"] }
