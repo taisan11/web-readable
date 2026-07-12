@@ -1,6 +1,6 @@
 {
   "name": "@web-readable/core",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "Fast article extraction and HTML-to-Markdown conversion powered by Rust.",
   "license": "MIT",
   "repository": "https://github.com/taisan11/web-readable",
@@ -39,12 +39,12 @@
     ]
   },
   "optionalDependencies": {
-    "@web-readable/core-linux-x64-gnu": "0.1.0",
-    "@web-readable/core-linux-x64-musl": "0.1.0",
-    "@web-readable/core-linux-arm64-gnu": "0.1.0",
-    "@web-readable/core-darwin-arm64": "0.1.0",
-    "@web-readable/core-darwin-x64": "0.1.0",
-    "@web-readable/core-win32-x64-msvc": "0.1.0",
-    "@web-readable/core-win32-arm64-msvc": "0.1.0"
+    "@web-readable/core-linux-x64-gnu": "0.1.3",
+    "@web-readable/core-linux-x64-musl": "0.1.3",
+    "@web-readable/core-linux-arm64-gnu": "0.1.3",
+    "@web-readable/core-darwin-arm64": "0.1.3",
+    "@web-readable/core-darwin-x64": "0.1.3",
+    "@web-readable/core-win32-x64-msvc": "0.1.3",
+    "@web-readable/core-win32-arm64-msvc": "0.1.3"
   }
 }
