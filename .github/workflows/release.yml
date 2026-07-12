@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 20, registry-url: https://registry.npmjs.org }
+        with: { node-version: '24', registry-url: https://registry.npmjs.org, package-manager-cache: false }
       - uses: dtolnay/rust-toolchain@stable
       - uses: oven-sh/setup-bun@v2
         with: { bun-version: '1.3.14' }
@@ -27,10 +27,13 @@ jobs:
   publish:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 20, registry-url: https://registry.npmjs.org }
+        with: { node-version: '24', registry-url: https://registry.npmjs.org, package-manager-cache: false }
       - uses: oven-sh/setup-bun@v2
         with: { bun-version: '1.3.14' }
       - run: bun install --frozen-lockfile
@@ -39,4 +42,3 @@ jobs:
       - run: find artifacts -name '*.node' -exec cp {} . \;
       - run: bun x napi prepublish -t npm
       - run: npm publish
-        env: { NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} }
