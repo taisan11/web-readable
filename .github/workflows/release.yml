@@ -8,25 +8,38 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { os: ubuntu-latest, target: x86_64-unknown-linux-gnu }
-          - { os: ubuntu-latest, target: x86_64-unknown-linux-musl }
-          - { os: ubuntu-latest, target: aarch64-unknown-linux-gnu }
-          - { os: macos-13, target: x86_64-apple-darwin }
-          - { os: macos-14, target: aarch64-apple-darwin }
-          - { os: windows-latest, target: x86_64-pc-windows-msvc }
-          - { os: windows-latest, target: aarch64-pc-windows-msvc }
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-musl
+          - os: ubuntu-latest
+            target: aarch64-unknown-linux-gnu
+          - os: macos-13
+            target: x86_64-apple-darwin
+          - os: macos-14
+            target: aarch64-apple-darwin
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+          - os: windows-latest
+            target: aarch64-pc-windows-msvc
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: '24', registry-url: https://registry.npmjs.org, package-manager-cache: false }
+        with:
+          node-version: '24'
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
       - uses: dtolnay/rust-toolchain@stable
       - uses: oven-sh/setup-bun@v2
-        with: { bun-version: '1.3.14' }
+        with:
+          bun-version: '1.3.14'
       - run: bun install --frozen-lockfile
       - run: bun x napi build --release --target ${{ matrix.target }}
       - uses: actions/upload-artifact@v4
-        with: { name: ${{ matrix.target }}, path: '*.node' }
+        with:
+          name: ${{ matrix.target }}
+          path: '*.node'
   publish:
     needs: build
     runs-on: ubuntu-latest
@@ -36,12 +49,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: '24', registry-url: https://registry.npmjs.org, package-manager-cache: false }
+        with:
+          node-version: '24'
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
       - uses: oven-sh/setup-bun@v2
-        with: { bun-version: '1.3.14' }
+        with:
+          bun-version: '1.3.14'
       - run: bun install --frozen-lockfile
       - uses: actions/download-artifact@v4
-        with: { path: artifacts }
+        with:
+          path: artifacts
       - run: bun x napi artifacts -d artifacts
       - run: bun x napi prepublish -t npm
       - run: npm publish
