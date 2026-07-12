@@ -3,9 +3,13 @@ name = "web_readable"
 version = "0.1.0"
 edition = "2024"
 
+[lib]
+crate-type = ["lib", "cdylib"]
+
 [features]
 default = []
 dynamic = ["dep:chromiumoxide", "dep:futures", "dep:tokio"]
+napi = ["dep:napi", "dep:napi-derive"]
 
 [dependencies]
 html5ever = "0.39.0"
@@ -15,3 +19,8 @@ url = "2"
 chromiumoxide = { version = "0.9.1", optional = true, default-features = false }
 futures = { version = "0.3", optional = true }
 tokio = { version = "1", optional = true, features = ["rt", "time"] }
+napi = { version = "3", optional = true, features = ["napi8"] }
+napi-derive = { version = "3", optional = true }
+
+[build-dependencies]
+napi-build = "2"

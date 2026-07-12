@@ -13,6 +13,21 @@
 - 既存 CDP endpoint への接続によるレンダリング HTML 取得
 - Lightpanda endpoint 検出時の `lightpanda fetch` フォールバックによる安定取得
 
+## Node.js / npm
+
+```bash
+npm install @web-readable/core
+```
+
+```js
+const { extract, extractToMarkdown, htmlFragmentToMarkdown } = require('@web-readable/core')
+
+const article = extract('<main><article><h1>タイトル</h1><p>本文です。</p></article></main>')
+console.log(article.text_content)
+console.log(extractToMarkdown('<article><p>Hello <strong>world</strong></p></article>'))
+console.log(htmlFragmentToMarkdown('<p>Hello <strong>world</strong></p>'))
+```
+
 ## 現在の公開API
 
 - `extract(html)`  

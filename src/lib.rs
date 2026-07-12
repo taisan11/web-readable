@@ -7,6 +7,9 @@ pub mod markdown;
 mod model;
 mod scoring;
 
+#[cfg(feature = "napi")]
+mod napi_api;
+
 pub use error::{ExtractError, Result};
 pub use markdown::{
     extract_to_markdown, extract_to_markdown_from_url,
