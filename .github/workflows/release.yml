@@ -83,8 +83,4 @@ jobs:
       # Bootstrap only: NAPI-RS publishes the per-platform optional packages here.
       # Remove NPM_TOKEN after the first successful release and configure Trusted Publishing.
       - run: bun x napi prepublish -t npm
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
