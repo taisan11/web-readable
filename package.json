@@ -24,7 +24,7 @@
     "prepublishOnly": "napi prepublish -t npm"
   },
   "devDependencies": {
-    "@napi-rs/cli": "^3.7.2"
+    "@napi-rs/cli": "^3.7.4"
   },
   "napi": {
     "binaryName": "web-readable",
