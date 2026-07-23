@@ -42,7 +42,9 @@ jobs:
       - name: Build native addon
         shell: bash
         run: |
-          if [[ "${{ matrix.target }}" == *-unknown-linux-* ]]; then
+          if [[ "${{ matrix.target }}" == *-unknown-linux-musl ]]; then
+            bun x napi build --release --features napi --platform --target "${{ matrix.target }}" --cross-compile
+          elif [[ "${{ matrix.target }}" == *-unknown-linux-* ]]; then
             bun x napi build --release --features napi --platform --target "${{ matrix.target }}" --use-napi-cross
           else
             bun x napi build --release --features napi --platform --target "${{ matrix.target }}"
