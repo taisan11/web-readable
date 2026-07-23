@@ -1447,7 +1447,7 @@ dependencies = [
 
 [[package]]
 name = "web_readable"
-version = "0.1.0"
+version = "0.1.4"
 dependencies = [
  "chromiumoxide",
  "futures",
