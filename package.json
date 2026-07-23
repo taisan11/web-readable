@@ -3,7 +3,10 @@
   "version": "0.1.4",
   "description": "Fast article extraction and HTML-to-Markdown conversion powered by Rust.",
   "license": "MIT",
-  "repository": "https://github.com/taisan11/web-readable",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taisan11/web-readable.git"
+  },
   "publishConfig": {
     "access": "public"
   },
