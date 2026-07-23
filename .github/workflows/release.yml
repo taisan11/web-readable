@@ -81,7 +81,7 @@ jobs:
           path: artifacts
       - run: bun x napi artifacts -d artifacts
       # NAPI-RS publishes the per-platform optional packages here.
-      - run: bun x napi prepublish -t npm
+      - run: bun x napi prepublish -t npm --no-gh-release
         env:
           NPM_CONFIG_PROVENANCE: true
       - run: npm publish
