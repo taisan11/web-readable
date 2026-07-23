@@ -80,7 +80,10 @@ jobs:
         with:
           path: artifacts
       - run: bun x napi artifacts -d artifacts
-      # Bootstrap only: NAPI-RS publishes the per-platform optional packages here.
-      # Remove NPM_TOKEN after the first successful release and configure Trusted Publishing.
+      # NAPI-RS publishes the per-platform optional packages here.
       - run: bun x napi prepublish -t npm
+        env:
+          NPM_CONFIG_PROVENANCE: true
       - run: npm publish
+        env:
+          NPM_CONFIG_PROVENANCE: true

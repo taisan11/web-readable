@@ -8,7 +8,8 @@
     "url": "git+https://github.com/taisan11/web-readable.git"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "main": "index.js",
   "types": "index.d.ts",
